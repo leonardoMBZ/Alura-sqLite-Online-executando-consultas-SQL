@@ -1,0 +1,49 @@
+
+
+-- PARA PEGAR A MEDIA DOS LUCROS DA EMPRESA 
+SELECT AVG(LUCRO_LIQUIDO) FROM FATURAMENTO;
+SELECT AVG(DESPESAS) FROM FATURAMENTO;
+
+
+-- PARA PUXAR QUANTIDADES DE PESSOAS QUE ESTAO DESEMPREGADOS 
+
+SELECT COUNT(*) -- A FUNCAO DE AGREGACAO COUNT SERVE PARA TRAZER A SOMA TOTAL DE DETERMINADOS VALORES
+FROM HISTORIOCOEMPREGO 
+WHERE DATATERMINO NOT NULL; -- DATA TERMINO ONDE TRAZ OS VALORES EM QUE OS VALORES NAO PODE ESTAR NULOS 
+-- OU SEJA, ONDE A DATA DE TERMINO DE TRABALHO DOS COLABORADORES ESTAO PREENCHIDS, ESTANDO ELES DESEMPREGADOS
+
+
+/*Imagine que você é uma pessoa analista de dados trabalhando para o Bytebank Banco Digital. Você foi encarregado(a)
+de analisar o comportamento dos clientes para ajudar na tomada de decisões estratégicas do banco. Uma de suas tarefas
+é avaliar a média de saldo e o número total de contas ativas no banco. Para isso, você terá que fazer uso das funções 
+de agregação COUNT e AVG em uma base de dados que contém as seguintes colunas: id_cliente, nome, saldo, e status_conta
+(onde "ativa" indica uma conta em uso e "inativa" uma conta que não é mais utilizada).
+
+Com base no seu conhecimento adquirido no curso "Funções de agregação - COUNT e AVG", qual das seguintes consultas SQL
+retorna corretamente a média de saldo das contas ativas e o número total de contas ativas?*/
+
+SELECT COUNT(id_cliente) AS Total_Contas, AVG(saldo) AS Media_Saldo
+FROM contas
+WHERE status_conta = 'ativa';
+
+
+---- CLAUSULA GRUPBY
+
+SELECT PARENTESCO, COUNT(*) -- SOMA TOTAL DOS PARENTESCONS 
+FROM DEPENDENDENTES GROUP BY PARENESCO;
+-- RETORNARA APENAS PARENTESCO EXISTENTE NA TABELA
+
+
+-- FUNCOES QUE RETORNARA  AS INSTITUICOES E A SOMA TOTL DE SEUS CURSOS
+
+SELECT INSTITUICAO,  COUNT(CURSO) AS 'TOTAL DO CURSO'
+FROM TREINAMENTO  GROUP BY INSTITUICAO;
+-- NA TENTATIVA DE PUXAR UMA CONDICAO WHERE, DEU UM ERRO DE SINTAXE, POIS EM FUNCAO DE AGREGACA 
+-- N E CORRETO UTILIZAR O WHERE, POIS ELE SO AGE COM VALORES UNICOS 
+
+-- FORMA CORRETA DE RETORNAR OS VALORES 
+-- RETORNANDO OS VALORES COM A CONDICAO EM QUE AS QUANTIDADES DOS CURSOS SEJAM MAIOR QUE 2
+
+SELECT INSTITUICAO,  COUNT(CURSO) AS 'TOTAL DO CURSO'
+FROM TREINAMENTO  GROUP BY INSTITUICAO
+HAVING COUNT(CURSOS)>2;
