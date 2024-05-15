@@ -1,0 +1,30 @@
+CLAUSULA HAVING
+
+A cláusula HAVING em SQL é utilizada para especificar condições de filtro que se aplicam a grupos de registros, em contraste com a cláusula WHERE, que se aplica a registros individuais. No SQLite, assim como em outros sistemas de gerenciamento de banco de dados, HAVING é frequentemente usada em conjunto com instruções de agregação (GROUP BY), permitindo filtrar os resultados dessas agregações.
+
+Funcionalidade da Cláusula HAVING
+HAVING especifica uma condição para um grupo criado pela cláusula GROUP BY.
+É útil quando você deseja aplicar um filtro que não pode ser aplicado antes da agregação dos dados.
+Funciona como uma cláusula WHERE pós-agregação.
+Exemplo Básico
+Considere uma tabela vendas com colunas vendedor_id, valor_venda, e data_venda. Se você quiser saber quais vendedores tiveram um total de vendas superior a um determinado valor, você usaria HAVING:
+
+SELECT vendedor_id, SUM(valor_venda) AS total_vendas
+FROM vendas
+GROUP BY vendedor_id
+HAVING total_vendas > 10000;
+COPIAR CÓDIGO
+Neste exemplo, a cláusula GROUP BY agrupa as vendas por vendedor_id, e HAVING filtra esses grupos, mantendo apenas aqueles onde o total de vendas é maior que 10.000.
+
+Diferença entre WHERE e HAVING
+WHERE é usado para filtrar registros antes de qualquer agrupamento.
+HAVING é usado para filtrar grupos criados pela cláusula GROUP BY.
+Uso no SQLite
+No SQLite, a cláusula HAVING funciona da mesma maneira que em outros SGBDs. É uma ferramenta poderosa para consultas que envolvem agregação de dados, especialmente útil em análises onde você precisa filtrar baseado no resultado de uma função de agregação como SUM, AVG, MAX, MIN, etc.
+
+Importante
+
+Sempre que usar HAVING, geralmente você terá uma cláusula GROUP BY na sua consulta.
+A ordem das cláusulas em uma consulta SQL é importante: SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY.
+HAVING pode ser usado sem GROUP BY, mas seu uso nesse caso é limitado e menos comum.
+Em resumo, HAVING é uma parte crucial da linguagem SQL para análises e relatórios complexos, permitindo aos usuários do SQLite e de outros SGBDs filtrar dados agregados de acordo com critérios específicos.
