@@ -1,0 +1,24 @@
+ATIVIDADE 
+
+Adotar boas práticas de nomenclatura para tabelas e colunas em um banco de dados é crucial para manter a consistência, legibilidade e eficiência ao longo do tempo, especialmente à medida que o banco de dados cresce e mais pessoas começam a trabalhar com ele. Existem algumas diretrizes gerais e boas práticas que valem a pena levarmos em consideração como:
+
+1. Clareza e Descritividade:
+Nomes Significativos: Escolha nomes que reflitam claramente o conteúdo e a função da tabela ou coluna. Por exemplo, uma tabela que armazena informações sobre clientes pode ser chamada de Clientes ou InformacoesClientes.
+Evite Abreviações Obscuras: Abreviações podem tornar os nomes mais curtos, mas devem ser evitadas a menos que sejam amplamente compreendidas e consistentes em todo o banco de dados.
+2. Consistência:
+Convenção de Nomenclatura: Escolha uma convenção de nomenclatura e seja fiel a ela em todo o banco de dados. Por exemplo, se você usar nomes no singular para tabelas (Cliente), use isso consistentemente. O mesmo vale para a capitalização; escolha entre PascalCase, camelCase ou snake_case e seja consistente.
+Padrões de Nomenclatura de Coluna: Mantenha um padrão para nomes de colunas semelhantes em diferentes tabelas. Por exemplo, se uma coluna que se refere a um identificador único é nomeada IdCliente em uma tabela, não a nomeie ClienteID em outra.
+3. Evitar Palavras Reservadas:
+Palavras do SQL: Evite usar palavras reservadas do SQL como nomes de tabelas ou colunas, como SELECT, DATE, TABLE, etc. Isso pode causar conflitos e erros em consultas.
+4. Precisão e Escopo:
+Especificidade: Nomes de colunas devem ser precisos. Por exemplo, em vez de chamar uma coluna de Data, nomeie-a como DataNascimento ou DataContratacao, dependendo do contexto.
+Qualificação de Nomes: Em um banco de dados com muitas tabelas relacionadas, pode ser útil incluir uma referência à tabela pai no nome de uma coluna de chave estrangeira. Por exemplo, IdCliente em uma tabela de pedidos.
+5. Simplicidade e Tamanho:
+Nomes Curtos, Mas Descritivos: Enquanto a descritividade é importante, nomes excessivamente longos podem ser problemáticos para digitar e podem não ser totalmente suportados por todos os sistemas de banco de dados.
+6. Utilizar Sublinhados para Espaços:
+Sem Espaços: Não use espaços em nomes de tabelas ou colunas. Use sublinhados (_) se necessário para separar palavras.
+7. Documentação:
+Mantenha Documentação: Documente as convenções de nomenclatura e as decisões específicas de nomes para facilitar a compreensão e manutenção por outros usuários e desenvolvedores.
+8. Idioma:
+Considere o Idioma Padrão: Use um idioma consistente (geralmente inglês) para nomes de tabelas e colunas, a menos que haja uma razão específica para não fazê-lo.
+Ao seguir essas práticas recomendadas, você facilitará muito a manutenção, a compreensão e a colaboração em seu banco de dados. Um sistema de nomenclatura claro e consistente é um investimento que economiza tempo e evita confusões à medida que o banco de dados evolui e é utilizado por diferentes pessoas.
